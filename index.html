@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="./js/app.js"></script>
 </head>
 <body>
-    <div class="game">
-        <div id="snail"></div>
-        <div id="rocks"></div>
-        <div id="flyingbird"></div>
+    <div id="game"></div>
+    <h1>
+        <span>GUESS<br>THE<br>ANIME<br><em>CHARACTER</em></span>
+        
+        </h1>
+        <h2 id= "message">~ Let's hope you've been studying ~</h2>
+        <form>
+            <footer>
+                <button id="reset">Reset</button>
+            <br>
+            <br>
+            <button id="click-to-submit" type="submit">Submit!</button>
+            </footer>
+            <div id="characters">
+                <div class="row">
+                    <h3> Which one would win in a fight?</h3>
+                    <div class="column">
+                        <img src="https://static.zerochan.net/Sukuna.%28Jujutsu.Kaisen%29.full.3142954.jpg" alt="sukuna" style="width:30%">
+                        <img src="https://images.hdqwalls.com/download/bakugou-boku-no-hero-academia-4k-xb-1280x720.jpg" alt="bakugou" style="width:30%"></div>
+                    </div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+                
 
-
-
-
-
-
-
-
-
-    </div>
-
-
-
+        </form>
+        <script src="app.js"></script>
 </body>
 </html>

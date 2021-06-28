@@ -1,10 +1,11 @@
 
 /*-------------------------------- Constants --------------------------------*/
-
+const restartBtn = document.getElementById("reset");
 
 
 /*-------------------------------- Variables --------------------------------*/
-
+var playing = false;
+var startButton;
 
 
 /*------------------------ Cached Element References ------------------------*/

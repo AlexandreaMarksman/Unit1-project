@@ -1,58 +1,43 @@
-
-.game {
-    width: 500px;
-    height: 200px;
-    border: 1px dotted rgb(70, 117, 70);
-
+@import "https://fonts.google.com/specimen/Sonsie+One?preview.text=Guess%20the%20Anime%20Character&preview.text_type=custom&slant=6#standard-styles";
+body {
+    margin: 0px;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #CDF0EA;
+    text-transform: uppercase;
+    font-size: larger;
+}
+h1 {
+    color: white;
+    background-color: lightpink;
+}
+h2 {
+    color: #FFAAA7;
+}
+h3 {
+    color: #F21170;
+}
+button{
+    color: pink;
+    border: pink;
+    size: 4px;
 }
 
-.snail {
-    height: 50px;
-    width: 50px;
-    background-color: rgb(120, 161, 73);
-    position: relative;
-    
+button:hover {
+    cursor: pointer;
+    transform: translate(-6px);
+    font-size: large;
 }
-
-.rock{
-    width: 100px;
-    height: 50px;
-    background-color: lightblue;
-    top: 100px;
-    left: 200px;
-    animation: rock is infinite linear;
+.characters {
+    border: pink;
 }
-
-/* Okay we gonna make this rock work aight */
-
-@keyframes rock {
-    0%{left:480px;}
-    100%{left:-40px;}
-    
+.row {
+    width: 100%;
+    height: 40px;
+    text-align: center;
 }
-
-/* Now we gotta teach our lil snail to jump... 🥺 you can do it<3*/
-
-@keyframes jump {
-    0%{top: 150px;}
-    50%{top: 100px;}
-    100%{top: 150px;}
-}
-
-
-
-
-
-
-
-
-@media only screen and (min-width: 768px) {
-    body {
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: 50px auto 30px;
-        grid-template-areas: 
-        "header header"
-        "side content"
-        "footer footer";
-    }
+.column {
+    width: 600px;
+    margin: 0px auto;
 }
