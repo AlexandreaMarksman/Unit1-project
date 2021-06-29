@@ -5,7 +5,6 @@ body {
     box-sizing: border-box;
     text-align: center;
     background-color: #CDF0EA;
-    text-transform: uppercase;
     font-size: larger;
 }
 h1 {
@@ -16,7 +15,7 @@ h2 {
     color: #FFAAA7;
 }
 h3 {
-    color: #F21170;
+    color: #FFAAA7;
 }
 button{
     color: pink;
