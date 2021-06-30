@@ -8,24 +8,33 @@
 
 // User/Question shows score and reset button. As soon as reset button is click on request more questions
 
-// ** set up div structure for 1 question and 4 answers **
-// ** write function to show any question, given the parameter.
+//  set up div structure for 1 question and 4 answers **
+// write function to show any question, given the parameter.
 // more: get object from array that has the same index of the parameter give data from that object to the correct places in the data structure
 // dataArray[parameterName] 
+// ** when data Array reaches a certian lenght we need some logic to end the game// 
+// data array has a question removed everytime the user answer a question; so this game is currently breaking when there are no questions left
 
 
 /*-------------------------------- Constants --------------------------------*/
-
+const colorScheme = {
+    dark: "",
+    change: function() {
+      colorScheme.dark = colorScheme.dark ? "" : "dark"
+      document.querySelector("body").setAttribute("class", colorScheme.dark)
+    }
+}
 
 /*-------------------------------- Variables --------------------------------*/
 
 let dataArray 
-let score 
+let score
 let currentQuestion
-
+let randomNum
 
 /*------------------------ Cached Element References ------------------------*/
-const lightDarkBtn = document.querySelector("#light-dark-button")
+
+const darkModeBtn = document.querySelector("#dark-mode")
 const restartBtn = document.getElementById("reset");
 
 const question = document.getElementById
@@ -36,6 +45,10 @@ const answers = document.querySelectorAll
 
 const start = document.getElementById
 ("start");
+const scoreBoard = document.getElementById
+("score");
+
+const finalScorescreen = document.querySelectorAll(".hide")
 /*----------------------------- Event Listeners -----------------------------*/
 document.addEventListener("DOMContentLoaded",requestQuestions)
 
@@ -43,13 +56,14 @@ document.addEventListener("DOMContentLoaded",requestQuestions)
 //     requestQuestions()
 //     // go back to start screen
 // })
-
+darkModeBtn.addEventListener("click", colorScheme.change)
 start.addEventListener('click', render)
 
 answers.forEach(function (answerDiv) {
     answerDiv.addEventListener("click", checkResponse)
 })
 /*-------------------------------- Functions --------------------------------*/
+
 init()
 function init() {
     score = 0
@@ -70,17 +84,19 @@ function requestQuestions() {
 }
 
 function getRandomQuestion() {
-    const randomNum =  Math.floor(Math.random()*9) + 1
+    randomNum =  Math.floor(Math.random()*parseInt(dataArray.length-1)) 
     console.log(dataArray[randomNum])
     console.log(randomNum)
     // render(dataArray[randomNum])
-    currentQuestion=randomNum
+    currentQuestion = dataArray[randomNum].question
 }
 function render() {
     // randoQ has a question and all the answers
+    scoreBoard.innerHTML = score
     getRandomQuestion()
-    question.innerText = dataArray[currentQuestion].question
-    let answerArray = [dataArray[currentQuestion].correct_answer, ...dataArray[currentQuestion].incorrect_answers]
+    question.innerText = currentQuestion
+
+    let answerArray = [dataArray[randomNum].correct_answer, ...dataArray[randomNum].incorrect_answers]
     shuffleArray(answerArray)
     console.log(answerArray)
     answers.forEach((answerDiv, idx) => {
@@ -95,20 +111,26 @@ function shuffleArray(array) {
 }
 
 function checkResponse(event) {
-    console.log(event.target.innerText)
-    if (dataArray[currentQuestion].correct_answer === event.target.innerText) {
+    console.log(dataArray)
+    if (dataArray[randomNum].correct_answer === event.target.innerText) {
         score += 10;
     }
+
     currentQuestion++
     if(currentQuestion === 10){
-        score()
+        scoreScreen()
     }else{
         render()
+        dataArray.splice(randomNum, 1)
+        console.log(dataArray)
+        console.log(randomNum)
+        // remove question thats already been asked
     }
     
 }
 
-// function score() {
-    
-// }
-
+function scoreScreen() {
+    finalScorescreen.forEach(function(element){
+        element.classList.remove("hide")
+    })
+}

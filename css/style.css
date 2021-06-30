@@ -7,6 +7,11 @@ body {
     background-color: #CDF0EA;
     font-size: larger;
 }
+body.dark {
+    background-color: black;
+    color: white;
+}
+
 h1 {
     color: white;
     background-color: lightpink;
@@ -39,4 +44,12 @@ button:hover {
 .column {
     width: 600px;
     margin: 0px auto;
+}
+#answer {
+    color: lightpink;
+    font-size: x-large;
+    
+}
+.hide {
+    display: none;
 }
