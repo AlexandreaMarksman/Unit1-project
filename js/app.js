@@ -23,8 +23,9 @@ let dataArray
 let score 
 let currentQuestion
 
-/*------------------------ Cached Element References ------------------------*/
 
+/*------------------------ Cached Element References ------------------------*/
+const lightDarkBtn = document.querySelector("#light-dark-button")
 const restartBtn = document.getElementById("reset");
 
 const question = document.getElementById
@@ -68,15 +69,16 @@ function requestQuestions() {
     })
 }
 
-// function getRandomQuestion() {
-//     const randomNum =  Math.floor(Math.random()*9) + 1
-//     console.log(dataArray[randomNum])
-//     console.log(randomNum)
-//     render(dataArray[randomNum])
-
-// }
+function getRandomQuestion() {
+    const randomNum =  Math.floor(Math.random()*9) + 1
+    console.log(dataArray[randomNum])
+    console.log(randomNum)
+    // render(dataArray[randomNum])
+    currentQuestion=randomNum
+}
 function render() {
     // randoQ has a question and all the answers
+    getRandomQuestion()
     question.innerText = dataArray[currentQuestion].question
     let answerArray = [dataArray[currentQuestion].correct_answer, ...dataArray[currentQuestion].incorrect_answers]
     shuffleArray(answerArray)
@@ -106,6 +108,7 @@ function checkResponse(event) {
     
 }
 
-function score() {
-    // render score page
-}
+// function score() {
+    
+// }
+
