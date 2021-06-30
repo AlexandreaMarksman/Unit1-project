@@ -31,7 +31,7 @@ let dataArray
 let score
 let currentQuestion
 let randomNum
-
+let questionsAnswered
 /*------------------------ Cached Element References ------------------------*/
 
 const darkModeBtn = document.querySelector("#dark-mode")
@@ -42,6 +42,8 @@ const question = document.getElementById
 
 const answers = document.querySelectorAll
 ("#answer");
+
+const answersEl = document.getElementById("answers")
 
 const start = document.getElementById
 ("start");
@@ -67,7 +69,7 @@ answers.forEach(function (answerDiv) {
 init()
 function init() {
     score = 0
-    currentQuestion = 0
+    questionsAnswered = 0
 
 }
 
@@ -77,16 +79,15 @@ function requestQuestions() {
         return response.json()
     })
     .then(function(data) {
-        console.log(data)
+        
         dataArray = data.results
-        console.log(dataArray)
+        
     })
 }
 
 function getRandomQuestion() {
     randomNum =  Math.floor(Math.random()*parseInt(dataArray.length-1)) 
-    console.log(dataArray[randomNum])
-    console.log(randomNum)
+    
     // render(dataArray[randomNum])
     currentQuestion = dataArray[randomNum].question
 }
@@ -98,7 +99,7 @@ function render() {
 
     let answerArray = [dataArray[randomNum].correct_answer, ...dataArray[randomNum].incorrect_answers]
     shuffleArray(answerArray)
-    console.log(answerArray)
+    
     answers.forEach((answerDiv, idx) => {
     answerDiv.innerText = answerArray[idx]
     });
@@ -112,18 +113,18 @@ function shuffleArray(array) {
 
 function checkResponse(event) {
     console.log(dataArray)
+    console.log(currentQuestion)
     if (dataArray[randomNum].correct_answer === event.target.innerText) {
         score += 10;
     }
 
-    currentQuestion++
-    if(currentQuestion === 10){
+    ++questionsAnswered
+    if(questionsAnswered === 10){
         scoreScreen()
     }else{
-        render()
         dataArray.splice(randomNum, 1)
-        console.log(dataArray)
-        console.log(randomNum)
+        render()
+        
         // remove question thats already been asked
     }
     
@@ -133,4 +134,6 @@ function scoreScreen() {
     finalScorescreen.forEach(function(element){
         element.classList.remove("hide")
     })
+    question.classList.add("hide")
+    answersEl.classList.add("hide")
 }
