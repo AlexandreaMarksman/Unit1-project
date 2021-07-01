@@ -1,10 +1,10 @@
-# Guess the Anime Character Quiz
+# Guess the Anime Character Quiz!
 
-  ## Play it Yourself! : http://gaunit1projectalexm.surge.sh/
+  ### [Play it Yourself!](http://gaunit1projectalexm.surge.sh/)
 
-###### This is a Quiz to see your understanding of knowledge of popular anime
+## This is a Quiz to test your knowledge of popular Anime
 
-* Technologies Used: JavaScript, HTML, CSS.
+* Technologies Used: JavaScript, HTML, CSS, and API Trivia Open Database (https://opentdb.com/api_config.php).
 
 ### Rules: 
 - Click on your answers and watch the score above!
@@ -15,4 +15,5 @@
 
 ### There is a Light and Dark mode!
 
-Inline-style: ![alt text]()
+![alt text](assets/Gameimages.png)
+![DarkMode](assets/DarkMode.png)
