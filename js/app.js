@@ -1,21 +1,3 @@
-//  As soon as the app loads, go request questions from Api
-// Player presses start button, Quiz starts.
-// "Show question" player picks answer if answer regradless of the correct answer, move on to the next question. 
-// function called showQuestion with a parameter of the question it's showing. This function will show the number of the parameter
-//(optional)** Player picks answer, if answer is wrong the correct answer would light up green, the wrong** 
-//
-// whenever they answer a question check to see if it's right or wrong and show next question.
-
-// User/Question shows score and reset button. As soon as reset button is click on request more questions
-
-//  set up div structure for 1 question and 4 answers **
-// write function to show any question, given the parameter.
-// more: get object from array that has the same index of the parameter give data from that object to the correct places in the data structure
-// dataArray[parameterName] 
-// ** when data Array reaches a certian lenght we need some logic to end the game// 
-// data array has a question removed everytime the user answer a question; so this game is currently breaking when there are no questions left
-
-
 /*-------------------------------- Constants --------------------------------*/
 const colorScheme = {
     dark: "",
